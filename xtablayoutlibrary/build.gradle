@@ -4,36 +4,36 @@ def GROUP_ID = 'com.mhy.ui'
 def ARTIFACT_ID = "xtablayout"
 def VERSION_NAME = '0.0.3'
 //artifactory私库直接执行这里
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                groupId = GROUP_ID
-                artifactId = ARTIFACT_ID
-                version = VERSION_NAME
-            }
-        }
-        repositories {
-            maven {
-                allowInsecureProtocol true  // 如果MAVEN_LOCAL_PATH是http，此处必须为true，如果是https，则可以删除此项
-                name = "artifactory"  //"nexus" 配置后在Gradle > Tasks > publishing 下会显示对应的名称，容易区分
-                url = uri(MAVEN_URL)
-                credentials {
-                    username = MAVEN_USER
-                    password = MAVEN_PASSWORD
-                }
-            }
-        }
-    }
-}
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+//                from components.release
+//                groupId = GROUP_ID
+//                artifactId = ARTIFACT_ID
+//                version = VERSION_NAME
+//            }
+//        }
+//        repositories {
+//            maven {
+//                allowInsecureProtocol true  // 如果MAVEN_LOCAL_PATH是http，此处必须为true，如果是https，则可以删除此项
+//                name = "artifactory"  //"nexus" 配置后在Gradle > Tasks > publishing 下会显示对应的名称，容易区分
+//                url = uri(MAVEN_URL)
+//                credentials {
+//                    username = MAVEN_USER
+//                    password = MAVEN_PASSWORD
+//                }
+//            }
+//        }
+//    }
+//}
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 32
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 28
+        minSdkVersion 21
+        targetSdkVersion 32
         versionCode 1
         versionName VERSION_NAME
 
@@ -48,6 +48,10 @@ android {
         abortOnError false
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {

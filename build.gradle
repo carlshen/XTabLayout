@@ -4,9 +4,11 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        maven {
-            allowInsecureProtocol = true
-            url 'http://tencent.a1000.top:8082/artifactory/maven'}
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+//        maven {
+//            allowInsecureProtocol = true
+//            url 'http://tencent.a1000.top:8082/artifactory/maven'}
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.2'
@@ -19,9 +21,12 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        maven {
-            allowInsecureProtocol = true
-            url 'http://tencent.a1000.top:8082/artifactory/maven'}
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url "https://jitpack.io" }
+//        maven {
+//            allowInsecureProtocol = true
+//            url 'http://tencent.a1000.top:8082/artifactory/maven'}
     }
 }
 
